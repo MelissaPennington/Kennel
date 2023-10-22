@@ -2,7 +2,13 @@ import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from views import get_all_animals, get_single_animal, create_animal, delete_animal, update_animal
 from views import get_all_locations, get_single_location, create_location, delete_location
-from views import get_single_employee, get_all_employees, create_employee, delete_employee
+from views import (
+    get_single_employee,
+    get_all_employees,
+    create_employee,
+    delete_employee,
+    update_employee
+)
 from views import (
     get_single_customer,
     get_all_customers,
@@ -206,9 +212,18 @@ class HandleRequests(BaseHTTPRequestHandler):
     # Encode the new animal and send in response
         self.wfile.write("".encode())
 
+        (resource, id) = self.parse_url(self.path)
     # Delete a single animal from the list
         if resource == "customers":
             update_customer(id, post_body)
+
+    # Encode the new animal and send in response
+        self.wfile.write("".encode())
+
+        (resource, id) = self.parse_url(self.path)
+    # Delete a single animal from the list
+        if resource == "employees":
+            update_employee(id, post_body)
 
     # Encode the new animal and send in response
         self.wfile.write("".encode())
