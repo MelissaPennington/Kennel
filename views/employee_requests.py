@@ -75,7 +75,7 @@ def delete_employee(id):
     if employee_index >= 0:
         EMPLOYEES.pop(employee_index)
 
-def update_employee(id, new_mployee):
+def update_employee(id, new_employee):
     """update item"""
     # Iterate the ANIMALS list, but use enumerate() so that
     # you can access the index value of each item.

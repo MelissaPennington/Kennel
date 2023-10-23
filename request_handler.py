@@ -1,7 +1,13 @@
 import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from views import get_all_animals, get_single_animal, create_animal, delete_animal, update_animal
-from views import get_all_locations, get_single_location, create_location, delete_location
+from views import (
+    get_all_locations,
+    get_single_location,
+    create_location,
+    delete_location,
+    update_location
+)
 from views import (
     get_single_employee,
     get_all_employees,
@@ -147,14 +153,14 @@ class HandleRequests(BaseHTTPRequestHandler):
             new_location = create_location(post_body)
 
         # Encode the new animal and send in response
-            self.wfile.write(json.dumps(new_location).encode())
+            self.wfile.write(json.dumps(new_location).encode())   
         new_customer = None
         if resource == "customers":
             new_customer = create_customer(post_body)
 
         # Encode the new animal and send in response
-            self.wfile.write(json.dumps(new_customer).encode())
-            new_customer = None
+            self.wfile.write(json.dumps(new_customer).encode())      
+        new_employee = None
 
         if resource == "employees":
             new_employee = create_employee(post_body)
@@ -212,18 +218,20 @@ class HandleRequests(BaseHTTPRequestHandler):
     # Encode the new animal and send in response
         self.wfile.write("".encode())
 
-        (resource, id) = self.parse_url(self.path)
-    # Delete a single animal from the list
         if resource == "customers":
             update_customer(id, post_body)
 
     # Encode the new animal and send in response
         self.wfile.write("".encode())
 
-        (resource, id) = self.parse_url(self.path)
-    # Delete a single animal from the list
         if resource == "employees":
             update_employee(id, post_body)
+
+    # Encode the new animal and send in response
+        self.wfile.write("".encode())
+
+        if resource == "locations":
+            update_location(id, post_body)
 
     # Encode the new animal and send in response
         self.wfile.write("".encode())
