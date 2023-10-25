@@ -3,22 +3,19 @@ EMPLOYEES = [
     "id": 1,
     "name": "Emma Beaton",
     "address": "54 Sycamore Avenue",
-    "locationId": 2,
-    "status": "Active"
+    "location_id": 2,
   },
   {
     "id": 2,
     "name": "Emma Bea",
     "address": "54 Sycamore Ave",
-    "locationId": 2,
-    "status": "Active"
+    "location_id": 2,
   },
   {
     "id": 3,
     "name": "E. Beaton",
     "address": "54 Sycamore Avenue",
-    "locationId": 2,
-    "status": "Active"
+    "location_id": 2,
   }
 ]
 

@@ -2,22 +2,16 @@ CUSTOMERS = [
     {
         "id": 1,
         "name": "Ryan Tanay",
-        "status": "Active"
+        "address": "426 Maple St",
+        "email": "ryan_t1@gmail.com",
+        "password": "RT123"
     },
     {
         "id": 2,
-        "name": "Ryan McNair",
-        "status": "Active"
-    },
-        {
-        "id": 3,
-        "name": "Ryan Pennington",
-        "status": "Inactive"
-    },
-    {
-        "id": 4,
-        "name": "Ryan Igo",
-        "status": "Active"
+        "name": "Ryan Pox",
+        "address": "426 Elm St",
+        "email": "ryan_p@yahoo.com",
+        "password": "RP123"
     }
 ]
 
