@@ -2,18 +2,18 @@ ANIMALS = [
     {
         "id": 1,
         "name": "Elle",
-        "species": "Dog",
-        "location": 1,
-        "customerId": 4,
-        "status": "Admitted"
+        "status": "Admitted",
+        "breed": "Dog",
+        "customer_id": 4,
+        "location_id": 1
     },
     {
         "id": 2,
-        "name": "Eleanor",
-        "species": "Dog",
-        "location": 1,
-        "customerId": 2,
-        "status": "Admitted"
+        "name": "Elf",
+        "status": "Admitted",
+        "breed": "Fox",
+        "customer_id": 2,
+        "location_id": 2
     },
 ]
 
