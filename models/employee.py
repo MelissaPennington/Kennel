@@ -1,6 +1,5 @@
 class Employee:
-    """
-    This class represents an employee object.
+    """This class represents an employee object.
 
     Attributes:
         id (int): The unique identifier for the employee.
