@@ -143,14 +143,12 @@ def update_animal(id, new_animal):
             ANIMALS[index] = new_animal
             break
 
-def get_animal_by_location(location_id):
-    """return animal by location."""
+def get_animals_by_location(location_id):
+    """Return animals by location."""
     with sqlite3.connect("./kennel.sqlite3") as conn:
         conn.row_factory = sqlite3.Row
         db_cursor = conn.cursor()
 
-        # Use a ? parameter to inject a variable's value
-        # into the SQL statement.
         db_cursor.execute("""
         SELECT
             a.id,
@@ -161,9 +159,8 @@ def get_animal_by_location(location_id):
             a.customer_id
         FROM animal a
         WHERE a.location_id = ?
-        """, ( location_id, ))
-
-        # Load the single result into memory
+        """, (location_id, ))
+       
         animals = []
         dataset = db_cursor.fetchall()
 
@@ -171,6 +168,6 @@ def get_animal_by_location(location_id):
             animal = Animal(row['id'], row['name'], row['breed'],
                             row['status'], row['location_id'],
                             row['customer_id'])
-        animals.append(animal.__dict__)
+            animals.append(animal.__dict__)
 
-    return animal
+    return animals

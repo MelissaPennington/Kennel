@@ -7,7 +7,7 @@ from views import (
     create_animal,
     delete_animal,
     update_animal,
-    get_animal_by_location
+    get_animals_by_location
 )
 from views import (
     get_all_locations,
@@ -106,9 +106,8 @@ class HandleRequests(BaseHTTPRequestHandler):
 
             if query.get('email') and resource == 'customers':
                 response = get_customer_by_email(query['email'][0])
-            
-            if query.get('location') and resource == 'animals':
-                response = get_animal_by_location(query['location'][0])
+            if query.get('location_id') and resource == 'animals':
+                response = get_animals_by_location(query['location_id'][0])
 
         self.wfile.write(json.dumps(response).encode())
 
