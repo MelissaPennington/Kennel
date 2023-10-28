@@ -79,3 +79,20 @@ SELECT
 		a.password
 FROM customer a
 WHERE a.id = 3
+
+-- Get only the employee rows where the `id` field value is 3
+SELECT
+    a.id,
+    a.name,
+    a.address,
+    a.location_id
+FROM employee a
+WHERE a.id = 3
+
+-- Get only the location rows where the `id` field value is 3
+SELECT
+    a.id,
+    a.name,
+    a.address
+FROM location a
+WHERE a.id = 1
