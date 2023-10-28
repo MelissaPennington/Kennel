@@ -7,7 +7,8 @@ from views import (
     create_animal,
     delete_animal,
     update_animal,
-    get_animals_by_location
+    get_animals_by_location,
+    get_animals_by_status
 )
 from views import (
     get_all_locations,
@@ -15,14 +16,14 @@ from views import (
     create_location,
     delete_location,
     update_location,
-
 )
 from views import (
     get_single_employee,
     get_all_employees,
     create_employee,
     delete_employee,
-    update_employee
+    update_employee,
+    get_employees_by_location
 )
 from views import (
     get_single_customer,
@@ -108,7 +109,10 @@ class HandleRequests(BaseHTTPRequestHandler):
                 response = get_customer_by_email(query['email'][0])
             if query.get('location_id') and resource == 'animals':
                 response = get_animals_by_location(query['location_id'][0])
-
+            if query.get('status') and resource == 'animals':
+                response = get_animals_by_status(query['status'][0])
+            if query.get('location_id') and resource == 'employees':
+                response = get_employees_by_location(query['location_id'][0])
         self.wfile.write(json.dumps(response).encode())
 
     def do_POST(self):
