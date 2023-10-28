@@ -63,7 +63,8 @@ def get_all_employees():
             employee = Employee(row['id'], row['name'], row['address'],
                             row['location_id'])
 
-            employees.append(employee.__dict__) # see the notes below for an explanation on this line of code.
+            employees.append(employee.__dict__)
+            # see the notes below for an explanation on this line of code.
 
     return employees
 
@@ -92,7 +93,7 @@ def get_single_employee(id):
         employee = Employee(data['id'], data['name'], data['address'],
                             data['location_id'])
 
-        return employee.__dict__ 
+        return employee.__dict__
 def create_employee(employee):
     """Creates new employee."""
     # Get the id value of the last animal in the list
