@@ -97,3 +97,16 @@ SELECT
     a.address
 FROM location a
 WHERE a.id = 1
+
+SELECT
+    a.id,
+    a.name,
+    a.breed,
+    a.status,
+    a.location_id,
+    a.customer_id,
+    l.name AS location_name,
+    l.address AS location_address
+FROM Animal a
+JOIN Location l
+    ON l.id = a.location_id

@@ -157,12 +157,12 @@ class HandleRequests(BaseHTTPRequestHandler):
         self.wfile.write("".encode())
 
     def do_PUT(self):
-        """Updates item"""
-        self._set_headers(204)
+        """updates information"""
         content_len = int(self.headers.get('content-length', 0))
         post_body = self.rfile.read(content_len)
         post_body = json.loads(post_body)
 
+        # Parse the URL
         (resource, id) = self.parse_url(self.path)
 
         if resource == "animals":
@@ -173,8 +173,21 @@ class HandleRequests(BaseHTTPRequestHandler):
             update_employee(id, post_body)
         elif resource == "locations":
             update_location(id, post_body)
+        # set default value of success
+        success = False
 
-        self.wfile.write("".encode())
+        if resource == "animals":
+        # will return either True or False from `update_animal`
+            success = update_animal(id, post_body)
+            # rest of the elif's
+
+            # handle the value of success
+            if success:
+                self._set_headers(204)
+            else:
+                self._set_headers(404)
+
+            self.wfile.write("".encode())
 
 def main():
     """brings to the main page"""

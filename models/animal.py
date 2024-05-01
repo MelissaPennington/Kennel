@@ -18,6 +18,7 @@ class Animal:
         self.status = status
         self.location_id = location_id
         self.customer_id = customer_id
+        self.location = None
 
 # Creating a new Animal object
-new_animal = Animal(1, "Snickers", "Dog", "Recreation", 1, 4)
+new_animal = Animal(1, "Snickers", "Dog", "Active", 1, 4)
